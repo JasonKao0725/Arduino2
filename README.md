@@ -1,6 +1,6 @@
 # 109-2 HYIVS Arduino Practical Class
 # 2021/03/02 TUE
-# Project1：七段數字循環顯示
+## Project1：七段數字循環顯示
 程式碼：
 ```c++
 int a[10][7] ={
