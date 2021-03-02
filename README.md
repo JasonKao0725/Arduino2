@@ -30,5 +30,6 @@ for (int j = 0;j<10;j++)
 }
 ```
 成品圖：
+
 ![image](https://raw.githubusercontent.com/JasonKao0725/Arduino2/main/855D0CA8-6B8D-44D7-9892-E31C33284EBA.gif)
 
