@@ -1,5 +1,5 @@
 # 109-2 HYIVS Arduino Practical Class
-## 2021/03/02 TUE
+## 2021/03/02
 ### Project1：七段數字循環顯示
 程式碼：
 ```c++
