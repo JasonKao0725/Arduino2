@@ -99,6 +99,34 @@ void loop() {
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/E16BA290-2903-483C-829A-A90760870C95.gif)
 ### Project1-2：LCD顯示圖形
+程式碼：
+```c++
+byte smiley[8] = {
+  B00000,
+  B10001,
+  B00000,
+  B00000,
+  B10001,
+  B01110,
+  B00000,
+};
+#include <LiquidCrystal.h>
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+void setup() {
+  lcd.begin(16, 2);
+  lcd.print("hello,WORLD!");
+}
+void loop() {
+  delay(3000);
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.createChar(0, smiley);
+  lcd.setCursor(0,1);
+  lcd.write(byte(0));
+  }
+}
+```
 成品圖：
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/1C79A644-4478-4045-8A16-9C9816FE32D9.gif)
