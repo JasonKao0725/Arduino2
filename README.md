@@ -110,9 +110,13 @@ void loop() {
 
 ```
 成品圖：
+
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/E16BA290-2903-483C-829A-A90760870C95.gif)
 ### Project1-2：LCD顯示圖形
 成品圖：
+
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/1C79A644-4478-4045-8A16-9C9816FE32D9.gif)
 ### Project1-3：LCD圖形循環顯示
+成品圖：
+
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/5734F181-8029-4243-9356-04E32647E54E.gif)
