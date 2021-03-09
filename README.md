@@ -179,4 +179,4 @@ void loop() {
 }
 ```
 成品圖：
-![image]()
+![image](https://github.com/JasonKao0725/Arduino2/blob/main/11AEE55C-ACD2-49A7-9649-9A4154A1B9D9.gif)
