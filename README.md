@@ -107,7 +107,6 @@ void loop() {
   lcd.write(byte(0));
   }
 }
-
 ```
 成品圖：
 
