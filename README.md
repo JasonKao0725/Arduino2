@@ -78,6 +78,33 @@ for(int k=9;k<13;k++)
 ### Project1-1：LCD右移
 程式碼：
 ```c++
+#include <LiquidCrystal.h>
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+void setup() {
+  lcd.begin(16, 2);
+  lcd.print("hello,WORLD!");
+}
+void loop() {
+  delay(3000);
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.print("RRRRRRRRRRRR");
+  lcd.scrollDisplayRight();
+  lcd.noBlink();
+  delay(3000);
+}
+```
+成品圖：
+
+![image](https://github.com/JasonKao0725/Arduino2/blob/main/E16BA290-2903-483C-829A-A90760870C95.gif)
+### Project1-2：LCD顯示圖形
+成品圖：
+
+![image](https://github.com/JasonKao0725/Arduino2/blob/main/1C79A644-4478-4045-8A16-9C9816FE32D9.gif)
+### Project1-3：LCD圖形循環顯示
+程式碼：
+```c++
 byte smiley[8] = {
   B00000,
   B10001,
@@ -90,12 +117,10 @@ byte smiley[8] = {
 #include <LiquidCrystal.h>
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-
 void setup() {
   lcd.begin(16, 2);
   lcd.print("hello,WORLD!");
 }
-
 void loop() {
   delay(3000);
   lcd.clear();
@@ -108,14 +133,6 @@ void loop() {
   }
 }
 ```
-成品圖：
-
-![image](https://github.com/JasonKao0725/Arduino2/blob/main/E16BA290-2903-483C-829A-A90760870C95.gif)
-### Project1-2：LCD顯示圖形
-成品圖：
-
-![image](https://github.com/JasonKao0725/Arduino2/blob/main/1C79A644-4478-4045-8A16-9C9816FE32D9.gif)
-### Project1-3：LCD圖形循環顯示
 成品圖：
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/5734F181-8029-4243-9356-04E32647E54E.gif)
