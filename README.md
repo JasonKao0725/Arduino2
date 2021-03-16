@@ -228,7 +228,7 @@ void loop() {
 成品圖：
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/1C88798E-BDB2-4CA0-9510-4C5DE0C8571F.gif)
-### Project2：按鈕控制風扇轉速大小
+### Project2：按鈕控制風扇轉速、開關
 程式碼：
 ```c++
 int i;
@@ -248,9 +248,17 @@ void loop() {
     while(digitalRead(2)==LOW);
     i=i+35;
   }
-  else if(digitalRead(3)==LOW)  {
+  else if(digitalRead(3)==LOW) {
     while(digitalRead(3)==LOW);
     i=i-35;
+  }
+  else if(digitalRead(4)==LOW) {
+    while(digitalRead(4)==LOW);
+    i=80;
+  }
+  else if(digitalRead(7)==LOW) {
+    while(digitalRead(7)==LOW);
+    i=0;
   }
   if(i>=255) {
     i=255;
