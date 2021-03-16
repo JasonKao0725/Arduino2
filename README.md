@@ -209,3 +209,22 @@ void loop() {
 成品圖：
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/11AEE55C-ACD2-49A7-9649-9A4154A1B9D9.gif)
+## 2021/03/16
+### Project1
+程式碼：
+```c++
+void setup() {
+  pinMode(5,OUTPUT);//IN1
+  pinMode(6,OUTPUT);//IN2
+}
+void loop() {
+  for(int i=80;i<255;i+=86){
+    analogWrite(5,i);
+    analogWrite(6,0);
+    delay(5000);
+  }
+}
+```
+成品圖：
+
+![image](https://github.com/JasonKao0725/Arduino2/blob/main/1C88798E-BDB2-4CA0-9510-4C5DE0C8571F.gif)
