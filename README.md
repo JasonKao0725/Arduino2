@@ -210,7 +210,7 @@ void loop() {
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/11AEE55C-ACD2-49A7-9649-9A4154A1B9D9.gif)
 ## 2021/03/16
-### Project1
+### Project1：風扇三段轉速控制
 程式碼：
 ```c++
 void setup() {
