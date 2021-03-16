@@ -228,3 +228,39 @@ void loop() {
 成品圖：
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/1C88798E-BDB2-4CA0-9510-4C5DE0C8571F.gif)
+### Project2：按鈕控制風扇轉速大小
+程式碼：
+```c++
+int i;
+void setup() {
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(2,INPUT);
+  Serial.begin(9600);
+}
+void motor(int i) {
+  analogWrite(5,i);
+  analogWrite(6,0);
+}
+void loop() {
+  Serial.println(i);
+  if(digitalRead(2)==LOW) {
+    while(digitalRead(2)==LOW);
+    i=i+35;
+  }
+  else if(digitalRead(3)==LOW)  {
+    while(digitalRead(3)==LOW);
+    i=i-35;
+  }
+  if(i>=255) {
+    i=255;
+  }
+  else if(i<=0) {
+    i = 0;
+  }
+  motor(i);
+}
+```
+成品圖：
+
+![image](https://github.com/JasonKao0725/Arduino2/blob/main/37883E3E-F841-445B-B8D0-FE731D93C19C.gif)
