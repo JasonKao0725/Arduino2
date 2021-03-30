@@ -387,3 +387,117 @@ void loop() {
 成品圖：
 
 ![image](https://github.com/JasonKao0725/Arduino2/blob/main/image.jpg)
+### Project1-2：溫濕度感應器，溫度達設定數值即啟動風扇
+程式碼：
+```c++
+// DHT Temperature & Humidity Sensor
+// Unified Sensor Library Example
+// Written by Tony DiCola for Adafruit Industries
+// Released under an MIT license.
+
+// REQUIRES the following Arduino libraries:
+// - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
+// - Adafruit Unified Sensor Lib: https://github.com/adafruit/Adafruit_Sensor
+
+#include <Adafruit_Sensor.h>
+#include <DHT.h>
+#include <DHT_U.h>
+
+#define DHTPIN 2     // Digital pin connected to the DHT sensor 
+// Feather HUZZAH ESP8266 note: use pins 3, 4, 5, 12, 13 or 14 --
+// Pin 15 can work but DHT must be disconnected during program upload.
+
+// Uncomment the type of sensor in use:
+//#define DHTTYPE    DHT11     // DHT 11
+#define DHTTYPE    DHT22     // DHT 22 (AM2302)
+//#define DHTTYPE    DHT21     // DHT 21 (AM2301)
+
+// See guide for details on sensor wiring and usage:
+//   https://learn.adafruit.com/dht/overview
+
+DHT_Unified dht(DHTPIN, DHTTYPE);
+
+uint32_t delayMS;
+double a;
+void setup() {
+  pinMode(3,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  Serial.begin(9600);
+  dht.begin();
+  sensor_t sensor;
+  /*Serial.println(F("DHTxx Unified Sensor Example"));
+  // Print temperature sensor details.
+  dht.temperature().getSensor(&sensor);
+  Serial.println(F("------------------------------------"));
+  Serial.println(F("Temperature Sensor"));
+  Serial.print  (F("Sensor Type: ")); Serial.println(sensor.name);
+  Serial.print  (F("Driver Ver:  ")); Serial.println(sensor.version);
+  Serial.print  (F("Unique ID:   ")); Serial.println(sensor.sensor_id);
+  Serial.print  (F("Max Value:   ")); Serial.print(sensor.max_value); Serial.println(F("°C"));
+  Serial.print  (F("Min Value:   ")); Serial.print(sensor.min_value); Serial.println(F("°C"));
+  Serial.print  (F("Resolution:  ")); Serial.print(sensor.resolution); Serial.println(F("°C"));
+  Serial.println(F("------------------------------------"));
+  // Print humidity sensor details.
+  dht.humidity().getSensor(&sensor);
+  Serial.println(F("Humidity Sensor"));
+  Serial.print  (F("Sensor Type: ")); Serial.println(sensor.name);
+  Serial.print  (F("Driver Ver:  ")); Serial.println(sensor.version);
+  Serial.print  (F("Unique ID:   ")); Serial.println(sensor.sensor_id);
+  Serial.print  (F("Max Value:   ")); Serial.print(sensor.max_value); Serial.println(F("%"));
+  Serial.print  (F("Min Value:   ")); Serial.print(sensor.min_value); Serial.println(F("%"));
+  Serial.print  (F("Resolution:  ")); Serial.print(sensor.resolution); Serial.println(F("%"));
+  Serial.println(F("------------------------------------"));
+  // Set delay between sensor readings based on sensor details.*/
+  delayMS = sensor.min_delay / 1000;
+}
+void Motor(int a){
+  if (a == 1) {
+      digitalWrite(5,HIGH);
+      digitalWrite(6,LOW);
+    }
+    else {
+      digitalWrite(5,HIGH);
+      digitalWrite(6,HIGH);
+    }
+}
+void loop() {
+  // Delay between measurements.
+  delay(delayMS);
+  // Get temperature event and print its value.
+  sensors_event_t event;
+  dht.temperature().getEvent(&event);
+  if (isnan(event.temperature)) {
+    Serial.println(F("Error reading temperature!"));
+  }
+  else {
+    Serial.print(F("Temperature: "));
+    Serial.print(event.temperature);
+    Serial.println(F("°C"));
+    a = event.temperature;
+  }
+  // Get humidity event and print its value.
+  dht.humidity().getEvent(&event);
+  if (isnan(event.relative_humidity)) {
+    Serial.println(F("Error reading humidity!"));
+  }
+  else {
+    Serial.print(F("Humidity: "));
+    Serial.print(event.relative_humidity);
+    Serial.println(F("%"));
+  }
+  if (a >= 27) {
+    tone(3,500);
+    delay(500);
+    noTone(3);
+    delay(500);
+    Motor(1);
+  }
+  else{
+    Motor(0);
+  }
+}
+```
+成品圖：
+
+![image](https://github.com/JasonKao0725/Arduino2/blob/main/5B47BF3A-7B76-4CD1-886F-8652E3911F51.gif)
